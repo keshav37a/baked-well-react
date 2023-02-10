@@ -11,6 +11,8 @@ function Button({
   className,
   btnClassName,
   isCenter = false,
+  width,
+  height,
 }) {
   return (
     <div
@@ -27,6 +29,7 @@ function Button({
           [styles[`btn-full-width`]]: isFullWidth,
           [styles[`btn-not-full-width`]]: !isFullWidth,
         })}
+        style={{ width, height }}
       >
         {children}
       </button>

@@ -65,20 +65,6 @@
   background-color: var(--primary-bg-color-4);
 }
 
-/* .bakery-item-btn-invisible,
-.bakery-item-remove-btn-invisible {
-  visibility: hidden;
-  margin-top: 10px;
-}
-
-.single-bakery-item:hover .bakery-item-btn-invisible {
-  visibility: visible !important;
-}
-
-.single-bakery-item:hover .bakery-item-remove-btn-invisible {
-  visibility: visible !important;
-} */
-
 @media only screen and (min-width: 550px) {
   .bakery-items {
     grid-template-columns: 1fr 1fr;

@@ -1,12 +1,12 @@
 import styles from "./FixedBottomBar.module.css";
 import { useSelector } from "react-redux";
 
-function FixedBottomBar({ title = "Proceed to checkout." }) {
+function FixedBottomBar({ onClick, title = "Proceed to checkout." }) {
   const cartData = useSelector((state) => state?.mainSlice?.cartData);
   const { totalQuantity, totalAmount } = cartData;
 
   return (
-    <div className={styles["fixed-bar_wrapper"]}>
+    <div onClick={onClick} className={styles["fixed-bar_wrapper"]}>
       <div className={styles["fixed-bar_title"]}>{title}</div>
       <div>
         <div>

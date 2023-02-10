@@ -47,6 +47,8 @@ const BakerySlice = createSlice({
         cartData.totalQuantity -= 1;
         if (quantity > 1) {
           cartDataItems[itemIdToBeRemoved].quantity = quantity - 1;
+          cartDataItems[itemIdToBeRemoved].totalItemPrice -=
+            cartDataItems[itemIdToBeRemoved].price;
         } else if (quantity === 1 || quantity === 0) {
           delete cartDataItems[itemIdToBeRemoved];
         }

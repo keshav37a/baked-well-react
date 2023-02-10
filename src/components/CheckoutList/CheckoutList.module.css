@@ -1,0 +1,29 @@
+.checkout-list-fallback-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.checkout-list_wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100rem;
+  margin: auto;
+}
+
+.checkout-list-fallback-msg {
+  text-align: center;
+  max-width: 300px;
+  margin: auto;
+  padding-bottom: 2rem;
+}
+
+.checkout-info {
+  font-size: 1.25rem;
+  margin: 1rem;
+  font-weight: 700;
+}
