@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className={"bakery-app"}>
-      <Header />
+      <Header onHandleNavigateToCheckout={handleNavigateToCheckout} />
       <Routes>
         <Route
           path="/"

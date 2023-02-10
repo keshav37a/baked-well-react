@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import cx from "classnames";
 import Button from "../Button";
 import CheckoutItemCard from "../CheckoutItemCard";
 import styles from "./CheckoutList.module.css";
@@ -64,7 +65,22 @@ function CheckoutList({ onClickBackToMenu }) {
       <div className={styles["checkout-info"]}>
         Subtotal&nbsp;({totalQuantity}&nbsp;Items):&nbsp;₹{totalAmount}
       </div>
-      <Button onClick={handleProceedToBuyClick}>Proceed to Buy</Button>
+      <div className={styles["checkout-list_btn_wrapper"]}>
+        <Button
+          className={cx(styles["checkout-list_btn"])}
+          onClick={handleProceedToBuyClick}
+        >
+          Proceed to Buy
+        </Button>
+        <Button
+          className={cx(styles["checkout-list_btn"])}
+          btnClassName={cx(styles["checkout-list_back_btn"])}
+          onClick={onClickBackToMenu}
+          isCenter={true}
+        >
+          Go To Menu
+        </Button>
+      </div>
     </div>
   );
 }

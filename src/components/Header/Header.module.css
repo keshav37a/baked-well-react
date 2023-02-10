@@ -25,6 +25,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  z-index: 2;
 }
 
 .header-cart_img {

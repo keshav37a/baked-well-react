@@ -14,6 +14,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 12px;
+}
+
 body {
   margin: 0;
   font-family: "Poppins", serif;
@@ -37,4 +41,10 @@ p {
 
 .bakery-items-container {
   padding: 0.75rem 0.75rem 4rem 0.75rem;
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
 }

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 function Header({
   showOrderBanner = true,
   orderBannerText = "Orders placed after 8pm will be delivered the next day",
+  onHandleNavigateToCheckout,
 }) {
   const totalQuantity = useSelector(
     (state) => state?.mainSlice?.cartData?.totalQuantity
@@ -19,7 +20,10 @@ function Header({
       ) : null}
       <div className={styles["header-wrapper"]}>
         <h1 className={styles["header-title"]}>Baked Well</h1>
-        <div className={styles["header-cart_wrapper"]}>
+        <div
+          onClick={onHandleNavigateToCheckout}
+          className={styles["header-cart_wrapper"]}
+        >
           <img
             alt="cart"
             className={styles["header-cart_img"]}

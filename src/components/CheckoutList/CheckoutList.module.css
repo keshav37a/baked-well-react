@@ -27,3 +27,18 @@
   margin: 1rem;
   font-weight: 700;
 }
+
+.checkout-list_btn {
+  margin: 1rem;
+}
+
+.checkout-list_back_btn {
+  color: var(--secondary-text-color-1);
+  background-color: var(--primary-bg-color-4);
+}
+
+@media only screen and (min-width: 768px) {
+  .checkout-list_btn_wrapper {
+    display: flex;
+  }
+}
