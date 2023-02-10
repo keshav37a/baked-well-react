@@ -1,10 +1,15 @@
 import cartIcon from "../../assets/cart.ico";
 import styles from "./Header.module.css";
+import { useSelector } from "react-redux";
 
 function Header({
   showOrderBanner = true,
   orderBannerText = "Orders placed after 8pm will be delivered the next day",
 }) {
+  const totalQuantity = useSelector(
+    (state) => state?.mainSlice?.cartData?.totalQuantity
+  );
+
   return (
     <div className={styles["header"]}>
       {showOrderBanner ? (
@@ -20,6 +25,11 @@ function Header({
             className={styles["header-cart_img"]}
             src={cartIcon}
           />
+          <div className={styles["header-cart_qty_wrapper"]}>
+            {totalQuantity > 0 ? (
+              <div className={styles["header-cart_qty"]}>{totalQuantity}</div>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>

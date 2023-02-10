@@ -16,7 +16,7 @@
   left: 0;
   right: 0;
   width: 100%;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   letter-spacing: 3px;
   bottom: 3px;
 }
@@ -33,6 +33,24 @@
   cursor: pointer;
 }
 
+.header-cart_qty_wrapper {
+  width: 24px;
+  height: 24px;
+  margin-left: -0.75rem;
+}
+
+.header-cart_qty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: var(--primary-bg-color-4);
+  color: var(--secondary-text-color-1);
+  width: 24px;
+  height: 24px;
+  background-color: brown;
+}
+
 .header-order-banner {
   color: var(--secondary-text-color-1);
   padding: 1rem;
@@ -40,4 +58,10 @@
 
 .header-order-banner_msg {
   text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .header-title {
+    font-size: 2.5rem;
+  }
 }
