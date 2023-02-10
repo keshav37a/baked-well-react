@@ -1,0 +1,49 @@
+.bakery-items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.single-bakery-item {
+  background-color: var(--primary-bg-color-1);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.bakery-item_cover_photo_img {
+  height: 14rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.bakery-item_title {
+  margin-bottom: 0.5rem;
+}
+
+.bakery-item_desc {
+  text-align: center;
+}
+
+@media only screen and (min-width: 550px) {
+  .bakery-items {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .bakery-items {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .bakery-items {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
