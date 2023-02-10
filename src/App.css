@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
 :root {
   --primary-bg-color-1: #ffffff;
   --primary-bg-color-2: #f8f5ef;
   --primary-bg-color-3: #d1abb3;
 
   --secondary-text-color-1: #ffffff;
+  --secondry-color-disabled: #b0b0b0;
 }
 
 * {
@@ -12,6 +15,7 @@
 
 body {
   margin: 0;
+  font-family: "Lato", serif;
 }
 
 h1,

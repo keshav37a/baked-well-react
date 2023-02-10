@@ -39,7 +39,7 @@ export const BAKERY_ITEMS = [
       "An irresistble double whammy of rich Chocolate Oreos & crispy KitKat wafers paired with a beautiful sponge pastry.",
   },
   {
-    id: "4321",
+    id: "4021",
     name: "Choco Crunch Cake",
     coverImg:
       "https://kanchansweets.com/wp-content/uploads/2020/07/IMG_8760-scaled.jpg",
@@ -47,7 +47,7 @@ export const BAKERY_ITEMS = [
       "Savour the flavour of our huge assortment of 100% eggless craft Cakes, Pastries, Savouries & more with the renowned quality & purity associated with the House of Kanchan since 1985.",
   },
   {
-    id: "6732",
+    id: "8932",
     name: "Ganache Donut",
     coverImg:
       "https://kanchansweets.com/wp-content/uploads/2020/07/IMG_8834-scaled.jpg",
@@ -55,7 +55,7 @@ export const BAKERY_ITEMS = [
       "The renowned American donut deep fried to golden perfection, slathered in smooth & rich ganache and topped with candy stars",
   },
   {
-    id: "6732",
+    id: "6332",
     name: "Pineapple Cake",
     coverImg:
       "https://kanchansweets.com/wp-content/uploads/2020/07/IMG_8768-scaled.jpg",
