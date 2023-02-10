@@ -4,6 +4,7 @@ export const initialState = {
   cartData: {
     items: {},
     totalQuantity: 0,
+    totalAmount: 0,
   },
 };
 
@@ -34,6 +35,7 @@ const BakerySlice = createSlice({
         }
       }
       cartData.totalQuantity += 1;
+      cartData.totalAmount += Number(newItem.price);
     },
     removeFromCart: (state, { payload }) => {
       const cartData = state.cartData;
@@ -41,12 +43,13 @@ const BakerySlice = createSlice({
       const itemIdToBeRemoved = payload?.itemId;
       if (cartDataItems && cartDataItems[itemIdToBeRemoved]) {
         const quantity = cartDataItems[itemIdToBeRemoved].quantity;
+        cartData.totalAmount -= Number(cartDataItems[itemIdToBeRemoved].price);
+        cartData.totalQuantity -= 1;
         if (quantity > 1) {
           cartDataItems[itemIdToBeRemoved].quantity = quantity - 1;
         } else if (quantity === 1 || quantity === 0) {
           delete cartDataItems[itemIdToBeRemoved];
         }
-        cartData.totalQuantity -= 1;
       }
     },
   },

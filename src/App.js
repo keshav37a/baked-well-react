@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BakeryItems from "./components/BakeryItems";
 import Header from "./components/Header";
 import FixedBottomBar from "./components/FixedBottomBar";
@@ -15,12 +16,23 @@ function App() {
   return (
     <div className={"bakery-app"}>
       <Header />
-      <BakeryItems
-        onHandleToggleCheckoutBar={handleToggleCheckoutBar}
-        className={"bakery-items-container"}
-        items={BAKERY_ITEMS}
-      />
-      {showCheckoutBar ? <FixedBottomBar /> : null}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <BakeryItems
+                  onHandleToggleCheckoutBar={handleToggleCheckoutBar}
+                  className={"bakery-items-container"}
+                  items={BAKERY_ITEMS}
+                />
+                {showCheckoutBar ? <FixedBottomBar /> : null}
+              </>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

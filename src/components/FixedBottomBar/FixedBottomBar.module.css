@@ -8,16 +8,26 @@
   background-color: var(--primary-bg-color-4);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   cursor: pointer;
+  color: var(--secondary-text-color-1);
 }
 
 .fixed-bar_title {
   text-align: center;
-  color: var(--secondary-text-color-1);
+}
+
+.fixed-bar_cart_info {
+  display: flex;
 }
 
 .fixed-bar_total_qty {
   display: inline-block;
-  width: 18px;
+  text-align: center;
+  width: 1.5rem;
+}
+
+.fixed-bar_total_amount {
+  display: inline-block;
+  width: 1.5rem;
 }
