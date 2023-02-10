@@ -1,0 +1,23 @@
+.fixed-bar_wrapper {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  background-color: var(--primary-bg-color-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.fixed-bar_title {
+  text-align: center;
+  color: var(--secondary-text-color-1);
+}
+
+.fixed-bar_total_qty {
+  display: inline-block;
+  width: 18px;
+}

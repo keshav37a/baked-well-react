@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -7,7 +7,7 @@ import { addToCart, removeFromCart } from "../../store/main-slice";
 import Button from "../Button";
 import styles from "./BakeryItems.module.css";
 
-function BakeryItems({ className, items }) {
+function BakeryItems({ className, items, onHandleToggleCheckoutBar }) {
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state?.mainSlice?.cartData);
 
@@ -26,6 +26,15 @@ function BakeryItems({ className, items }) {
       })
     );
   }
+
+  useEffect(() => {
+    const totalQuantity = _get(cartData, `totalQuantity`, 0);
+    if (totalQuantity > 0) {
+      onHandleToggleCheckoutBar(true);
+    } else {
+      onHandleToggleCheckoutBar(false);
+    }
+  }, [cartData]);
 
   return (
     <div className={cx(styles["bakery-items"], className)}>
