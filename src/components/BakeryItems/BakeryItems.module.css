@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--primary-bg-color-1);
-  padding: 0.75rem 0.75rem 1.5rem 0.75rem;
+  padding: 0.75rem;
   border-radius: 8px;
   position: relative;
 }
@@ -50,13 +50,32 @@
   padding-top: 1rem;
 }
 
-.bakery-item-btn-invisible {
+.bakery-item-remove-btn-container {
+  min-height: 3rem;
+}
+
+.bakery-item-add-btn {
+  margin-top: 0.25rem;
+}
+
+.bakery-item-remove-btn-content {
+  color: var(--secondary-text-color-1);
+  background-color: var(--primary-bg-color-4);
+}
+
+/* .bakery-item-btn-invisible,
+.bakery-item-remove-btn-invisible {
   visibility: hidden;
+  margin-top: 10px;
 }
 
 .single-bakery-item:hover .bakery-item-btn-invisible {
   visibility: visible !important;
 }
+
+.single-bakery-item:hover .bakery-item-remove-btn-invisible {
+  visibility: visible !important;
+} */
 
 @media only screen and (min-width: 550px) {
   .bakery-items {

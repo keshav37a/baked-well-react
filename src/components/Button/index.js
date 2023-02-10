@@ -22,16 +22,11 @@ function Button({
       <button
         onClick={onClick}
         disabled={isDisabled}
-        className={cx(
-          ` expert-text-white expert-rounded expert-cursor-pointer`,
-          btnClassName,
-          styles["btn"],
-          {
-            [styles["btn-disabled"]]: isDisabled,
-            [styles[`btn-full-width`]]: isFullWidth,
-            [styles[`btn-not-full-width`]]: !isFullWidth,
-          }
-        )}
+        className={cx(btnClassName, styles["btn"], {
+          [styles["btn-disabled"]]: isDisabled,
+          [styles[`btn-full-width`]]: isFullWidth,
+          [styles[`btn-not-full-width`]]: !isFullWidth,
+        })}
       >
         {children}
       </button>

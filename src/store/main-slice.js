@@ -35,9 +35,23 @@ const BakerySlice = createSlice({
       }
       cartData.totalQuantity += 1;
     },
+    removeFromCart: (state, { payload }) => {
+      const cartData = state.cartData;
+      const cartDataItems = cartData.items;
+      const itemIdToBeRemoved = payload?.itemId;
+      if (cartDataItems && cartDataItems[itemIdToBeRemoved]) {
+        const quantity = cartDataItems[itemIdToBeRemoved].quantity;
+        if (quantity > 1) {
+          cartDataItems[itemIdToBeRemoved].quantity = quantity - 1;
+        } else if (quantity === 1 || quantity === 0) {
+          delete cartDataItems[itemIdToBeRemoved];
+        }
+        cartData.totalQuantity -= 1;
+      }
+    },
   },
 });
 
-export const { addToCart } = BakerySlice.actions;
+export const { addToCart, removeFromCart } = BakerySlice.actions;
 
 export default BakerySlice;

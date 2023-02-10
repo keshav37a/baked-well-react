@@ -1,13 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { addToCart } from "../../store/main-slice";
+import _get from "lodash/get";
+import { addToCart, removeFromCart } from "../../store/main-slice";
 import Button from "../Button";
 import styles from "./BakeryItems.module.css";
 
 function BakeryItems({ className, items }) {
   const dispatch = useDispatch();
+  const cartData = useSelector((state) => state?.mainSlice?.cartData);
 
   function handleAddToCart(singleItem) {
     dispatch(
@@ -17,12 +19,22 @@ function BakeryItems({ className, items }) {
     );
   }
 
+  function handleRemoveFromCart(itemId) {
+    dispatch(
+      removeFromCart({
+        itemId,
+      })
+    );
+  }
+
   return (
     <div className={cx(styles["bakery-items"], className)}>
       {items.map((singleItem) => {
-        const { id, name, coverImg, description, price } = singleItem;
+        const { id: itemId, name, coverImg, description, price } = singleItem;
+        const currQty = _get(cartData, `items[${itemId}].quantity`, 0);
+
         return (
-          <div key={id} className={styles["single-bakery-item"]}>
+          <div key={itemId} className={styles["single-bakery-item"]}>
             <div className={styles["bakery-item_cover_photo_container"]}>
               <img
                 alt="bakery-item"
@@ -44,12 +56,29 @@ function BakeryItems({ className, items }) {
             <div className={cx(styles["bakery-item-btn-container"])}>
               <Button
                 onClick={() => handleAddToCart(singleItem)}
-                className={cx(styles["bakery-item-btn-invisible"])}
-                btnClassName={styles["bakery-item-btn"]}
+                btnClassName={cx(
+                  styles["bakery-item-btn"],
+                  styles["bakery-item-add-btn"]
+                )}
                 isFullWidth={true}
               >
                 Add to cart
               </Button>
+              <div className={cx(styles["bakery-item-remove-btn-container"])}>
+                {currQty > 0 ? (
+                  <Button
+                    onClick={() => handleRemoveFromCart(itemId)}
+                    className={styles["bakery-item-remove-btn"]}
+                    btnClassName={cx(
+                      styles["bakery-item-btn"],
+                      styles["bakery-item-remove-btn-content"]
+                    )}
+                    isFullWidth={true}
+                  >
+                    Remove from cart
+                  </Button>
+                ) : null}
+              </div>
             </div>
           </div>
         );
