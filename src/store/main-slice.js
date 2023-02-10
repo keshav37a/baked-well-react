@@ -21,8 +21,12 @@ const BakerySlice = createSlice({
       if (newItemId) {
         const oldCartDataById = cartDataItems[newItemId];
         if (oldCartDataById) {
-          const oldQty = oldCartDataById.quantity;
-          const oldPrice = oldCartDataById.totalItemPrice;
+          const oldQty = oldCartDataById?.quantity
+            ? oldCartDataById?.quantity
+            : 0;
+          const oldPrice = oldCartDataById?.totalItemPrice
+            ? oldCartDataById?.totalItemPrice
+            : 0;
           oldCartDataById.quantity = oldQty + 1;
           oldCartDataById.totalItemPrice = oldPrice + Number(newItem.price);
           state.cartData = cartData;
@@ -54,9 +58,16 @@ const BakerySlice = createSlice({
         }
       }
     },
+    clearCart: (state) => {
+      state.cartData = {
+        items: {},
+        totalQuantity: 0,
+        totalAmount: 0,
+      };
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = BakerySlice.actions;
+export const { addToCart, removeFromCart, clearCart } = BakerySlice.actions;
 
 export default BakerySlice;

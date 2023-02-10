@@ -1,7 +1,8 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import cx from "classnames";
 import Button from "../Button";
 import CheckoutItemCard from "../CheckoutItemCard";
+import { clearCart } from "../../store/main-slice";
 import styles from "./CheckoutList.module.css";
 
 function CheckoutList({ onClickBackToMenu }) {
@@ -11,7 +12,9 @@ function CheckoutList({ onClickBackToMenu }) {
     items: cartItems,
   } = useSelector((state) => state?.mainSlice?.cartData);
 
-  if (totalAmount === 0 || totalQuantity === 0) {
+  const dispatch = useDispatch();
+
+  if (!totalAmount || !totalQuantity) {
     return (
       <div className={styles["checkout-list-fallback-wrapper"]}>
         <div className={styles["checkout-list-fallback-msg"]}>
@@ -30,8 +33,12 @@ function CheckoutList({ onClickBackToMenu }) {
     Object.entries(cartItems).map(([_, value]) => {
       const { name, price, totalItemPrice, quantity, id } = value;
       payload.items.push({ id, name, price, totalItemPrice, quantity });
+      return null;
     });
     alert(JSON.stringify(payload));
+    dispatch(clearCart());
+    alert("Congrats on your order. Please wait while we process it");
+    onClickBackToMenu && onClickBackToMenu();
   }
 
   return (
@@ -47,7 +54,7 @@ function CheckoutList({ onClickBackToMenu }) {
             coverImg,
             description,
           } = value;
-          console.log("value: ", value);
+
           return (
             <CheckoutItemCard
               itemId={id}
