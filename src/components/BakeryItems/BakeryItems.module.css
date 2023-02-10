@@ -26,6 +26,7 @@
 }
 
 .bakery-item_title {
+  color: var(--primary-bg-color-4);
   margin-bottom: 0.5rem;
   font-weight: 700;
   font-size: 1.2rem;
@@ -34,6 +35,11 @@
 .bakery-item_desc {
   text-align: center;
   font-size: 1.1rem;
+}
+
+.bakery-item_price {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .bakery-item-btn-container {

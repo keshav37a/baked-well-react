@@ -1,9 +1,0 @@
-.header-order-banner {
-  background-color: var(--primary-bg-color-3);
-  color: var(--secondary-text-color-1);
-  padding: 1rem;
-}
-
-.header-order-banner_msg {
-  text-align: center;
-}
